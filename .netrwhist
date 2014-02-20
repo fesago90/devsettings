@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='c:\Users\fesalaza\.m2'
-let g:netrw_dirhist_2='c:\Users\fesalaza\.matplotlib'
-let g:netrw_dirhist_3='C:\Users\fesalaza\.matplotlib'
