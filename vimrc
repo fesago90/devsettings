@@ -64,6 +64,8 @@ syntax on
 
 if has("gui_running")
     set guioptions=cm
+    set lines=50
+    set columns=134
     colorscheme solarized
     "colorscheme zenburn
     set encoding=utf-8
