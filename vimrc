@@ -64,13 +64,15 @@ syntax on
 
 if has("gui_running")
     set guioptions=cm
-    colorscheme jellybeans
+    colorscheme solarized
+    "colorscheme zenburn
     set encoding=utf-8
-    "set guifont=Meslo\ LG\ M\ DZ\ for\ Powerline:h10
-    set guifont=Inconsolata\ for\ Powerline:h12
+    "set guifont=Meslo\ LG\ M\ DZ\ for\ Powerline:h8
+    "set guifont=Inconsolata\ for\ Powerline:h12
+    set guifont=Consolas:h10
 
     " Show eyecandy
-    let g:airline_powerline_fonts=1
+    "let g:airline_powerline_fonts=1
     " Don't show trailing space warning
     let g:airline#extensions#whitespace#enabled=0
 else
