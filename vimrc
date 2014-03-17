@@ -67,6 +67,7 @@ if has("gui_running")
     set lines=50
     set columns=134
     colorscheme solarized
+    set background=dark
     "colorscheme zenburn
     set encoding=utf-8
     "set guifont=Meslo\ LG\ M\ DZ\ for\ Powerline:h8
