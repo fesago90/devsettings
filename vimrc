@@ -70,10 +70,14 @@ if has("gui_running")
     set background=dark
     "colorscheme zenburn
     set encoding=utf-8
-    "set guifont=Meslo\ LG\ M\ DZ\ for\ Powerline:h8
-    "set guifont=Inconsolata\ for\ Powerline:h12
-    set guifont=Consolas:h10
 
+    if has("gui_win32")
+        "set guifont=Meslo\ LG\ M\ DZ\ for\ Powerline:h8
+        "set guifont=Inconsolata\ for\ Powerline:h12
+        set guifont=Consolas:h10
+    elseif has("gui_macvim")
+        set guifont=Menlo:h11
+    endif
     " Show eyecandy
     "let g:airline_powerline_fonts=1
     " Don't show trailing space warning
