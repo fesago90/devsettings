@@ -83,7 +83,7 @@ if has("gui_running")
     " Don't show trailing space warning
     let g:airline#extensions#whitespace#enabled=0
 else
-    colorscheme=default
+    colorscheme default
 endif
 
 " VimClojure highlighting features
