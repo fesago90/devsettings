@@ -16,9 +16,6 @@
 [submodule "bundle/paredit"]
 	path = bundle/paredit
 	url = https://github.com/vim-scripts/paredit.vim
-[submodule "bundle/Omnisharp"]
-	path = bundle/Omnisharp
-	url = https://github.com/nosami/Omnisharp.git
 [submodule "bundle/vim-dispatch"]
 	path = bundle/vim-dispatch
 	url = git://github.com/tpope/vim-dispatch.git
