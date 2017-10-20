@@ -1,0 +1,11 @@
+// Place your settings in this file to overwrite the default settings
+{
+    // vscodevim
+    "vim.disableAnnoyingNeovimMessage": true,
+    "vim.enableNeovim": true,
+    "vim.neovimPath": "nvim",
+    "vim.useSystemClipboard": true,
+    "vim.hlsearch": true,
+    // rls-vscode
+    "editor.formatOnSave": true
+}
