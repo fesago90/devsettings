@@ -66,6 +66,11 @@ set mat=3
 " Enable syntax highlighting
 syntax on
 
+" Ack.vim: use the_silver_searcher
+if (executable("ag"))
+  let g:ackrpg = 'ag --nogroup --nocolor --column'
+endif
+
 " Airline - Don't use fancy symbols
 let g:airline_symbols_ascii=1
 
@@ -76,13 +81,41 @@ let g:NERDTreeDirArrowExpandable="+"
 " rust.vim / syntastic: use cargo for syntax checking
 let g:syntastic_rust_checkers = ['cargo']
 
+" auto install Plug.vim  ... hmm...
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/pluggyplugs/')
+" install, initialize fzf
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+call plug#end()
+
+" VimClojure highlighting features
+let vimclojure#HighlightBuiltins=1
+let vimclojure#ParenRainbow=1
+
+" Start pathogen
+execute pathogen#infect()
+
+" Persist settings; e.g. window size, gvim menu settings
+" set to 0 to disable
+let g:setting_restore=0
+" Don't ignore vimrc settings
+" set 1 to ignore vimrc
+let g:setting_ignores_vimrc=0
+
+set t_Co=256
+set background=dark
+colorscheme solarized
+
 if has("gui_running")
     set guioptions=cm
     set lines=50
     set columns=134
-    colorscheme solarized
-    set background=dark
-    "colorscheme zenburn
 
     if has("gui_win32")
         "set guifont=Meslo\ LG\ M\ DZ\ for\ Powerline:h8
@@ -99,24 +132,7 @@ else
     " disable Background Color Erase, otherwise terminal background color
     " may bleed into Vim's
     "set t_ut=
-    set background=dark
-    let g:solarized_termcolors=256
-    colorscheme solarized
 endif
-
-" VimClojure highlighting features
-let vimclojure#HighlightBuiltins=1
-let vimclojure#ParenRainbow=1
-
-" Start pathogen
-execute pathogen#infect()
-
-" Persist settings; e.g. window size, gvim menu settings
-" set to 0 to disable
-let g:setting_restore=0
-" Don't ignore vimrc settings
-" set 1 to ignore vimrc
-let g:setting_ignores_vimrc=0
 
 " Always show status line
 set laststatus=2
