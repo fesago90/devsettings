@@ -3,6 +3,8 @@ set encoding=utf-8
 
 " no noises
 set visualbell
+" no screen flashes
+set t_vb=
 
 " no backup files
 set nobackup
