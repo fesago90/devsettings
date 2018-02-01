@@ -1,11 +1,27 @@
 // Place your settings in this file to overwrite the default settings
 {
+    //"editor.formatOnSave": true,
+    // python
+    "python.linting.enabled": false,
+    "python.formatting.provider": "yapf",
+    "python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 2}"],
     // vscodevim
-    "vim.disableAnnoyingNeovimMessage": true,
-    "vim.enableNeovim": true,
+    //"vim.enableNeovim": true,
     "vim.neovimPath": "nvim",
     "vim.useSystemClipboard": true,
     "vim.hlsearch": true,
+    "vim.useCtrlKeys": false,
     // rls-vscode
-    "editor.formatOnSave": true
+    "window.zoomLevel": 0,
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": true,
+        "suppressUpdateNotice": false,
+        "suppressWelcomeNotice": false
+    }
 }
