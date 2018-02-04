@@ -1,3 +1,0 @@
-# vim mode
-bindkey -v
-
