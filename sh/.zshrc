@@ -13,3 +13,5 @@ zstyle ':completion:*:default' list-colors ${(@s.:.)LS_COLORS}
 autoload -Uz compinit
 compinit
 
+# init fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
