@@ -1,2 +1,5 @@
 #!/usr/bin/env bash
-ln -s -r .tmux.conf -t ~/
+base=$(pwd)
+cd ~/
+ln -s -r ${base} .tmux
+ln -s -r ${base}/.tmux.conf .tmux.conf 
