@@ -1,8 +1,10 @@
-# init LS_COLORS from .dircolors
-eval $(dircolors -b $HOME/.sharedrc/dircolors)
-
-# aliases
-alias ls="ls -ah --color --group-directories-first"
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    alias ls="ls -ah --color --group-directories-first"
+	# init LS_COLORS from .dircolors
+	eval $(dircolors -b $HOME/.sharedrc/dircolors)
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    alias ls="ls -ah -G"
+fi
 
 function nonzero_return() {
 	RETVAL=$?
