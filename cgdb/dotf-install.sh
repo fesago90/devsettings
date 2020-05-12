@@ -1,3 +1,2 @@
-
-ln -s "$(pwd)" ~/.cgdb/
+ln -s -n "$(pwd)" ~/.cgdb
 

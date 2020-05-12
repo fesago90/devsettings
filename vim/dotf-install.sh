@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-ln -s "$(pwd)" ~/.vim
+ln -s -n "$(pwd)" ~/.vim
 
