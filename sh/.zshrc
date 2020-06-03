@@ -1,3 +1,17 @@
+export PATH=$HOME/bin:$PATH
+export EDITOR=vi
+
+export HISTFILESIZE=1000000000
+export HISTSIZE=1000000000
+
+# Homebrew stuff
+export PATH=$HOME/homebrew/bin:$PATH
+export LD_LIBRARY_PATH=$HOME/homebrew/lib:$LD_LIBRARY_PATH
+
+NEW_IP=192.168.0.139
+PRI_IP=192.168.0.119
+ELA_IP=192.168.0.121
+
 # vim mode
 bindkey -v
 
