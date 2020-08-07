@@ -87,6 +87,8 @@ endif
 
 " fzf - ctrl+p for file search
 nmap <C-p> :Files<cr>
+" fzf - ctrl+b for open buffers
+nmap <C-b> :Buffers<cr>
 " fzf - bindings within fzf buffer
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
