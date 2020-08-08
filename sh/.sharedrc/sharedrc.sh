@@ -3,8 +3,19 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 
+# fe [FUZZY PATTERN] - Open the selected file with the default editor
+#   - Bypass fuzzy finder if there's only one match (--select-1)
+#   - Exit if there's no match (--exit-0)
+fe() {
+	IFS='
+	'
+	local declare files=($(fzf-tmux --query="$1" --select-1 --exit-0))
+	[[ -n "$files" ]] && ${EDITOR:-vim} -X "${files[@]}"
+	unset IFS
+}
+
 # fd - cd to selected directory
-fd() {
+fcd() {
   local dir
   dir=$(find ${1:-.} -path '*/\.*' -prune \
                   -o -type d -print 2> /dev/null | fzf +m) &&
@@ -12,7 +23,7 @@ fd() {
 }
 
 # fdr - cd to selected parent directory
-fdr() {
+fcdr() {
   local declare dirs=()
   get_parent_dirs() {
     if [[ -d "${1}" ]]; then dirs+=("$1"); else return; fi
@@ -27,7 +38,7 @@ fdr() {
 }
 
 # cdf - cd into the directory of the selected file
-cdf() {
+fcdf() {
    local file
    local dir
    file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
@@ -44,5 +55,6 @@ function nonzero_return() {
 	RETVAL=$?
 	[ $RETVAL -ne 0 ] && echo -e " $RETVAL"
 }
+
 export PS1="\A \[\033[38;5;11m\]\w\[\033[m\]\[\033[48;5;1m\]\`nonzero_return\`\[\033[m\] \$ "
 
