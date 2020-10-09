@@ -620,7 +620,7 @@ exe "hi! Ignore"         .s:fmt_none   .s:fg_none   .s:bg_none
 exe "hi! Error"          .s:fmt_bold   .s:fg_red    .s:bg_none
 "       *Error           any erroneous construct
 
-exe "hi! Todo"           .s:fmt_bold   .s:fg_magenta.s:bg_none
+exe "hi! Todo"           .s:fmt_bold   .s:fg_none.s:bg_magenta
 "       *Todo            anything that needs extra attention; mostly the
 "                        keywords TODO FIXME and XXX
 "
