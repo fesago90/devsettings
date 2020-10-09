@@ -89,11 +89,15 @@ endif
 nmap <C-p> :Files<cr>
 " fzf - ctrl+b for open buffers
 nmap <C-b> :Buffers<cr>
+
+nnoremap <C-f> :set number! \| :set rnu!<cr>
+
 " fzf - bindings within fzf buffer
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-i': 'split',
   \ 'ctrl-s': 'vsplit' }
+
 
 let g:rg_command = '
   \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
@@ -154,3 +158,6 @@ set laststatus=2
 " Hide the default mode text (e.g. -- INSERT -- below the status line)
 set noshowmode
 
+if !empty(glob("~/.google_vimrc"))
+    source $HOME/.google_vimrc
+endif
