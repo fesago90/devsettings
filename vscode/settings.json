@@ -7,12 +7,16 @@
     "python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 2}"],
     // vscodevim
     //"vim.enableNeovim": true,
-    "vim.neovimPath": "nvim",
+    "vim.neovimPath": "/usr/bin/nvim",
     "vim.useSystemClipboard": true,
     "vim.hlsearch": true,
     "vim.useCtrlKeys": false,
+
+    // neo vim extension
+    "vscode-neovim.neovimExecutablePaths.linux": "/usr/local/google/home/felipesalazar/local/nvim/bin/nvim",
+
     // rls-vscode
-    "window.zoomLevel": 0,
+    "window.zoomLevel": -1,
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
         "suppressCommitNotFoundWarning": false,

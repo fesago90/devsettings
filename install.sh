@@ -1,8 +1,9 @@
 #!/bin/bash
-base=$(dirname $0)
+source sh/common.sh
+
 for dir in $(find . -maxdepth 1 -type d ! -name '.*'); do
-  echo "changing to $dir"
-  pushd $dir
-  ./dotf-install.sh
+  LOGINFO "changing to ${dir}"
+  pushd "$dir"
+  ./install.sh
   popd
 done

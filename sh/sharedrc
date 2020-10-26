@@ -46,7 +46,7 @@ fcdf() {
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     alias ls="ls -ah --color --group-directories-first"
 	# init LS_COLORS from .dircolors
-	eval $(dircolors -b $HOME/.sharedrc/dircolors)
+	eval $(dircolors -b $HOME/.config/myshconfig/dircolors)
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     alias ls="ls -ah -G"
 fi
