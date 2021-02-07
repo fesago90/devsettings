@@ -27,5 +27,6 @@
         "suppressResultsExplorerNotice": true,
         "suppressUpdateNotice": false,
         "suppressWelcomeNotice": false
-    }
+    },
+    "diffEditor.ignoreTrimWhitespace": false
 }
