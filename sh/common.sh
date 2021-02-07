@@ -10,26 +10,26 @@ function _log {
 
   case "${log_level}" in
     INFO)
-      color="\e[32m" # green
+      color=$'\e[32m' # green
       prefix="I"
       ;;
     WARNING)
-      color="\e[95m" # light magenta
+      color=$'\e[95m' # light magenta
       prefix="W"
       ;;
     ERROR)
-      color="\e[31m" # red
+      color=$'\e[31m' # red
       prefix="E"
       ;;
     VERBOSE)
-      color="\e[33m" # yellow
+      color=$'\e[33m' # yellow
       if [[ -z "${LOG_VERBOSE}" ]]; then
         should_print=0
       fi
       prefix="V"
       ;;
     *)
-      color="\e[96m" # light cyan
+      color=$'\e[96m' # light cyan
       prefix="#"
       ;;
   esac
@@ -37,7 +37,7 @@ function _log {
   if (( should_print )); then
     read line_no fn filename < <(caller ${call_frame})
     echo -e \
-      "${color}${prefix}:$(basename "${filename}"):${fn}:${line_no}\e[0m ${message}" 1>&2
+      "${color}${prefix}:$(basename "${filename}"):${fn}:${line_no}"$'\e[0m'" ${message}" 1>&2
   fi
 }
 
@@ -131,7 +131,7 @@ function link_or_append {
   src_file="$1"
   dst_file="$2"
   str_to_append="$3"
-  if [[ -e "${dst_file}" ]]; then
+  if [[ -e "${dst_file}" && ! "${src_file}" -ef "{$dst_file}" ]]; then
     maybe_append "${dst_file}" "${str_to_append}"
   else
     link_file "${src_file}" "${dst_file}"

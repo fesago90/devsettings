@@ -56,5 +56,3 @@ function nonzero_return() {
 	[ $RETVAL -ne 0 ] && echo -e " $RETVAL"
 }
 
-export PS1="\A \[\033[38;5;11m\]\w\[\033[m\]\[\033[48;5;1m\]\`nonzero_return\`\[\033[m\] \$ "
-
