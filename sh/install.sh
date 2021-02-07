@@ -2,8 +2,6 @@
 
 source ../sh/common.sh
 
-LOGINFO haello
-
 myshconfig="${HOME}/.config/myshconfig"
 link_dir "${PWD}" "${myshconfig}"
 maybe_append "${HOME}/.zshrc" "source ${myshconfig}/zshrc"
