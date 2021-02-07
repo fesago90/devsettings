@@ -1,0 +1,62 @@
+XTerm.termName: xterm-256color
+XTerm.vt100.metaSendsEscape: true
+XTerm.vt100.saveLines: 100000
+XTerm.vt100.foreground: white
+XTerm.vt100.backgrond: black
+
+URxvt.scrollBar: false
+URxvt.font: xft:Monospace:size=14:antialias=true
+
+XTerm*faceSize: 14
+xvt.font: xft:monaco:pixelsize=13
+urxvt*termName: xterm-256color
+urxvt*scrollBar: false
+urxvt*matcher.button: 1
+urxvt.transparent: false
+urxvt.boldFont:
+URxvt.letterSpace: -1
+Xft*dpi: 96
+Xft*antialias: true
+Xft*hinting: true
+Xft*hintstyle: hintfull
+URxvt*cursorUnderline: true
+Xft*rgba: rgb
+URxvt*geometry: 85x20
+
+! special
+*.foreground:   #f8f8f2
+*.background:   #272822
+*.cursorColor:  #f8f8f2
+
+! black
+*.color0:       #272822
+*.color8:       #75715e
+
+! red
+*.color1:       #f92672
+*.color9:       #f92672
+
+! green
+*.color2:       #a6e22e
+*.color10:      #a6e22e
+
+! yellow
+*.color3:       #f4bf75
+*.color11:      #f4bf75
+
+! blue
+*.color4:       #66d9ef
+*.color12:      #66d9ef
+
+! magenta
+*.color5:       #ae81ff
+*.color13:      #ae81ff
+
+! cyan
+*.color6:       #a1efe4
+*.color14:      #a1efe4
+
+! white
+*.color7:       #f8f8f2
+*.color15:      #f9f8f5
+
