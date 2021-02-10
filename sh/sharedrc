@@ -56,6 +56,6 @@ function nonzero_return() {
 	[ $RETVAL -ne 0 ] && echo -e " $RETVAL"
 }
 
-if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+if [[ -z "${DISPLAY}" && "${XDG_VTNR}" -eq 1 ]]; then
   exec startx
 fi
