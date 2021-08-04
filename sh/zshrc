@@ -17,6 +17,10 @@ promptinit
 prompt pws
 PROMPT='%T %F{yellow}%~%f%(?.. %F{red}%?%f) %# '
 
+# fzf completion + key bindings
+[[ $- == *i* ]] && source "$HOME/.config/myshconfig/fzf/completion.zsh" 2> /dev/null
+source "$HOME/.config/myshconfig/fzf/key-bindings.zsh"
+
 # match tab completion colors with LS_COLORS
 zstyle ':completion:*:default' list-colors ${(@s.:.)LS_COLORS}
 autoload -Uz compinit
@@ -24,5 +28,3 @@ compinit
 
 source "$HOME/.config/myshconfig/sharedrc"
 
-# init fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
