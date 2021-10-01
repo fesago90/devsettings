@@ -106,9 +106,11 @@ let g:rg_command = '
 " fzf - use :F to initiate ripgrep search
 command! -bang -nargs=* F call fzf#vim#grep(g:rg_command . shellescape(<q-args>), 1, <bang>0)
 
+
+" NOTE: Don't forget to run :PlugInstall
 call plug#begin('~/.vim/pluggyplugs/')
 " install, initialize fzf
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 call plug#end()
 
