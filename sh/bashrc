@@ -1,5 +1,7 @@
 export PS1="\A \[\033[38;5;11m\]\w\[\033[m\]\[\033[48;5;1m\]\`nonzero_return\`\[\033[m\] \$ "
 
+set -o vi
+
 # fzf completion + key bindings
 [[ $- == *i* ]] && source "$HOME/.config/myshconfig/fzf/completion.bash" 2> /dev/null
 source "$HOME/.config/myshconfig/fzf/key-bindings.bash"
