@@ -163,3 +163,5 @@ set noshowmode
 if !empty(glob("~/.google_vimrc"))
     source $HOME/.google_vimrc
 endif
+
+call g:background_updater#StartBackgroundUpdater()
