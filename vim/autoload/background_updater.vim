@@ -1,14 +1,9 @@
 function s:update_background()
-  silent let date = system('date +%H')
-  let hour = str2nr(date)
-  if (hour > 7) && (hour < 19)
-    if &background == "dark"
-      set background=light
-    endif
-  else
-    if &background == "light"
-      set background=dark
-    endif
+  silent let target_state = system('background_color_state.sh')
+  if (target_state =~ "light" && &background == "dark")
+    set background=light
+  elseif (target_state =~ "dark" && &background == "light")
+    set background=dark
   endif
 endfunction
 
