@@ -1,0 +1,39 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# https://docs.vagrantup.com.
+Vagrant.configure("2") do |config|
+
+  config.vm.box = "archlinux/archlinux"
+
+  # privileged
+  config.vm.provision "shell", inline: <<-SHELL
+    pacman -Syu --noconfirm
+    pacman -S --noconfirm man which
+
+    pacman -S --noconfirm nix
+    systemctl enable --now nix-daemon.service
+  SHELL
+
+  # non-privileged
+  config.vm.provision "shell", privileged: false, inline: <<-SHELL
+    nix-channel --add https://nixos.org/channels/nixpkgs-unstable
+    nix-channel --update
+
+    nix-env -iA nixpkgs.git
+    nix-env -iA nixpkgs.vim
+
+    if [[ ! -e "$HOME/devsettings" ]]; then
+      git clone https://github.com/fesago90/devsettings.git
+      cd "$HOME/devsettings"
+      git submodule update --init --recursive
+      ./install.sh
+    fi
+  SHELL
+
+  config.vm.provider "virtualbox" do |vb|
+    # vb.gui = true
+    vb.memory = "4096"
+    vb.cpus = 2
+  end
+end
