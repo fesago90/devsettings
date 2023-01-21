@@ -1,4 +1,13 @@
-export PS1="\A \[\033[38;5;11m\]\w\[\033[m\]\[\033[48;5;1m\]\`nonzero_return\`\[\033[m\] \$ "
+function ps1_exit_code_indicator() {
+    RETVAL=$?
+    (( $RETVAL != 0 )) && echo -e " \033[48;5;1m$RETVAL\033[m"
+}
+
+function ps1_nix_shell_indicator() {
+  [[ -n "$IN_NIX_SHELL" ]] && echo -e " \033[38;5;14mnix\033[m"
+}
+
+export PS1="\A \[\033[38;5;11m\]\w\[\033[m\]\`ps1_exit_code_indicator\`\`ps1_nix_shell_indicator\` \$ "
 
 set -o vi
 

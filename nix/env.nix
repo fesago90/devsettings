@@ -1,17 +1,16 @@
 { pkgs ? import <nixpkgs> {} }:
 
 let
-  py3WithPackages = pkgs.python3.withPackages (ps: with ps; [ openai ]);
+  py3WithPackages = pkgs.python3.withPackages (ps: with ps; [ ]);
 in {
   inherit (pkgs)
     python3
-    gdb
-    gcc
-    #lldb
-    #clang
+    ripgrep
+    lldb
     vim
     git
     fzf
+    unzip
     tmux;
   python = py3WithPackages;
 }
