@@ -1,13 +1,14 @@
+# Note: when using echo use \001 and \002 instead of \[ and \] to wrap color codes
 function ps1_exit_code_indicator() {
-    RETVAL=$?
-    (( $RETVAL != 0 )) && echo -e " \033[48;5;1m$RETVAL\033[m"
+  RETVAL=$?
+  (( $RETVAL != 0 )) && echo -ne " \001\033[48;5;1m\002$RETVAL\001\033[m\0002"
 }
 
 function ps1_nix_shell_indicator() {
-  [[ -n "$IN_NIX_SHELL" ]] && echo -e " \033[38;5;14mnix\033[m"
+  [[ -n "$IN_NIX_SHELL" ]] && echo -ne " \001\033[38;5;14m\002nix\001\033[m\002"
 }
 
-export PS1="\A \[\033[38;5;11m\]\w\[\033[m\]\`ps1_exit_code_indicator\`\`ps1_nix_shell_indicator\` \$ "
+export PS1="\A \[\033[38;5;11m\]\w\[\033[m\]\$(ps1_exit_code_indicator)$(ps1_nix_shell_indicator) \$ "
 
 set -o vi
 
