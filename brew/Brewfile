@@ -1,0 +1,7 @@
+tap "homebrew/bundle"
+brew "fzf"
+brew "ripgrep"
+brew "tmux"
+cask "vagrant"
+cask "vagrant-vmware-utility"
+cask "visual-studio-code"
