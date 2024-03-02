@@ -34,6 +34,7 @@ function _log {
       ;;
   esac
 
+  local line_no fn filename
   if (( should_print )); then
     read line_no fn filename < <(caller ${call_frame})
     echo -e \
@@ -114,6 +115,7 @@ function link_file {
 }
 
 function maybe_append {
+  local dst_file str_to_append
   if (( $# != 2 )); then
     DIE "Illegal number of parameters"
   fi
@@ -125,6 +127,7 @@ function maybe_append {
 }
 
 function link_or_append {
+  local src_file dst_file str_to_append
   if (( $# != 3 )); then
     DIE "Illegal number of parameters"
   fi
